@@ -12,7 +12,7 @@
 
 ~~Place <code>structureHarvester.py</code> and <code>harvesterCore.py</code> in the same directory (or leave them where they are).~~
 2. There is no step 2.
-4. There is no step 3.
+3. There is no step 3.
 
 ## Usage Wep App
     Usage: python app.py
