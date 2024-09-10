@@ -9,10 +9,17 @@
 
 ## Installation
 1. Download or <code>clone</code> the package.
-2. Place <code>structureHarvester.py</code> and <code>harvesterCore.py</code> in the same directory (or leave them where they are).
-3. There is no step 3.
 
-## Usage
+~~Place <code>structureHarvester.py</code> and <code>harvesterCore.py</code> in the same directory (or leave them where they are).~~
+2. There is no step 2.
+4. There is no step 3.
+
+## Usage Wep App
+    Usage: python app.py
+    Upload zip file
+    Press "Start Processing"
+
+## Usage Manual
     Usage: structureHarvester.py --dir=path/to/dir/ --out=path/to/dir/ [options]
 
     structureHarvester.py takes a STRUCTURE results directory (--dir) and an
