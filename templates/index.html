@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Process Archive</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            padding: 30px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-container {
+            margin-bottom: 20px;
+        }
+
+        .step-label {
+            font-weight: bold;
+            color: #555;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Process Your ZIP Archive</h1>
+
+        <div class="step-container">
+            <span class="step-label">Step 1:</span>
+            <label for="file">Upload ZIP file:</label>
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <input type="file" name="file" id="file" />
+        </div>
+
+        <div class="step-container">
+            <span class="step-label">Step 2:</span>
+            <input type="submit" value="Start Processing" />
+        </div>
+
+            </form>
+    </div>
+
+    <footer>
+        &copy; 2024 - Structure Harvester WEB Runner
+    </footer>
+</body>
+</html>
