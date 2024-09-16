@@ -73,29 +73,41 @@
             font-size: 12px;
             color: #aaa;
         }
+
+        .checkbox-container {
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Process Your ZIP Archive</h1>
 
-        <div class="step-container">
-            <span class="step-label">Step 1:</span>
-            <label for="file">Upload ZIP file:</label>
-            <form method="POST" action="/upload" enctype="multipart/form-data">
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <div class="step-container">
+                <span class="step-label">Step 1:</span>
+                <label for="file">Upload ZIP file:</label>
                 <input type="file" name="file" id="file" />
-        </div>
+            </div>
 
-        <div class="step-container">
-            <span class="step-label">Step 2:</span>
-            <input type="submit" value="Start Processing" />
-        </div>
+            <div class="step-container checkbox-container">
+                <span class="step-label">Step 2:</span>
+                <label for="evanno">Evanno:</label>
+                <input type="checkbox" name="evanno" id="evanno" />
 
-            </form>
+                <label for="clumpp" style="margin-left: 20px;">Clumpp:</label>
+                <input type="checkbox" name="clumpp" id="clumpp" />
+            </div>
+
+            <div class="step-container">
+                <span class="step-label">Step 3:</span>
+                <input type="submit" value="Start Processing" />
+            </div>
+        </form>
     </div>
 
     <footer>
-        &copy; 2024 - Structure Harvester WEB Runner
+        &copy; 2024 - Structure Harvester WEB Runner - Yuremboo
     </footer>
 </body>
 </html>

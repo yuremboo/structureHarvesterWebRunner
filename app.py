@@ -55,8 +55,16 @@ def upload_file():
     result_folder = os.path.join(app.config['RESULT_FOLDER'], 'result')
     os.makedirs(result_folder, exist_ok=True)
 
-    # Run the command: structureHarvester.py --dir=extracted_folder_path --out=result
-    subprocess.run(['python', 'structureHarvester.py', '--dir', extracted_folder_path, '--out', result_folder])
+    # Check for options (evanno, clumpp) from checkboxes
+    options = []
+    if request.form.get('evanno'):
+        options.append('--evanno')
+    if request.form.get('clumpp'):
+        options.append('--clumpp')
+
+    # Build the command: structureHarvester.py --dir=extracted_folder_path --out=result [options]
+    command = ['python', 'structureHarvester.py', '--dir', extracted_folder_path, '--out', result_folder] + options
+    subprocess.run(command)
 
     # Clean up extracted folder
     shutil.rmtree(extract_folder)
