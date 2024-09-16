@@ -73,6 +73,9 @@ def upload_file():
     result_zip = os.path.join(app.config['RESULT_FOLDER'], 'result.zip')
     shutil.make_archive(result_zip.replace('.zip', ''), 'zip', result_folder)
 
+    # Clean up result folder after zipping
+    shutil.rmtree(result_folder)
+
     # Return the result archive for download
     return send_file(result_zip, as_attachment=True)
 

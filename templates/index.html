@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload and Process Archive</title>
+    <title>Upload and Process Structure Archive</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -43,12 +43,40 @@
             color: #555;
         }
 
-        input[type="file"] {
-            padding: 10px;
-            width: 100%;
-            border: 1px solid #ccc;
+        /* Custom file input styles */
+        .custom-file-input {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
             border-radius: 5px;
-            margin-top: 5px;
+            font-size: 16px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-file-input:hover {
+            background-color: #0056b3;
+        }
+
+        .custom-file-input input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        /* Display selected file name */
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
         }
 
         input[type="submit"] {
@@ -78,16 +106,30 @@
             margin-bottom: 15px;
         }
     </style>
+    <script>
+        // JavaScript to display the selected file name
+        function displayFileName() {
+            var fileInput = document.getElementById('file');
+            var fileNameDisplay = document.getElementById('file-name');
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = 'Selected file: ' + fileInput.files[0].name;
+            } else {
+                fileNameDisplay.textContent = '';
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
-        <h1>Process Your ZIP Archive</h1>
+        <h1>Process Your Structure ZIP Archive</h1>
 
         <form method="POST" action="/upload" enctype="multipart/form-data">
             <div class="step-container">
                 <span class="step-label">Step 1:</span>
-                <label for="file">Upload ZIP file:</label>
-                <input type="file" name="file" id="file" />
+                <label for="file" class="custom-file-input">Choose file
+                    <input type="file" name="file" id="file" onchange="displayFileName()" />
+                </label>
+                <div id="file-name" class="file-name"></div>
             </div>
 
             <div class="step-container checkbox-container">
